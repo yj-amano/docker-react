@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t yj-amano/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run yj-amano/docker-react npm run test -- --coverage 
